@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>RuralFlow OS — Rural Demand & Supply Planning</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="ruralflow-root"></div>
+<script>
+(async()=>{
+  const parts=await Promise.all(['frag1.html','frag2.html','frag3.html'].map(f=>fetch(f).then(r=>{if(!r.ok)throw new Error('Failed to load '+f);return r.text()})));
+  document.getElementById('ruralflow-root').innerHTML=parts.join('');
+  const s=document.createElement('script');s.src='app.js';document.body.appendChild(s);
+})().catch(err=>{document.getElementById('ruralflow-root').innerHTML='<div style="font-family:system-ui;padding:30px">Unable to load prototype. Please refresh.</div>';console.error(err)});
+</script>
+</body>
+</html>
